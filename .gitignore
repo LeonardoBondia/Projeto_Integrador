@@ -1,0 +1,30 @@
+# IDE/OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs e caches
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependências/Build
+node_modules/
+dist/
+build/
+coverage/
+.tmp/
+
+# PHP / Composer
+vendor/
+# (Geralmente versiona-se composer.lock; mantenha-o se usar Composer)
+
+# Ambiente/Segurança
+.env
+.env.*
+*.sqlite
+
+# Uploads temporários
+uploads/
