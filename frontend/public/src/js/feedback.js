@@ -8,12 +8,14 @@ function showFeedback({ type = "success", title, message, onClose } = {}) {
   const okBtn   = document.getElementById('fbOk');
 
   // Aparência
+  card.classList.remove('error');
   if (type === 'error') {
-    card.classList.add('error'); ico.textContent = '▲'; // triângulo de alerta
+    card.classList.add('error');
+    ico.textContent = '▲'; // Triângulo de alerta
     ttl.textContent = title || 'Dados inválidos';
     msg.textContent = message || 'Verifique os dados digitados.';
   } else {
-    card.classList.remove('error'); ico.textContent = '✓';
+    ico.textContent = '✓';
     ttl.textContent = title || 'Cadastro realizado com sucesso!';
     msg.textContent = message || 'Tudo certo!';
   }
@@ -28,6 +30,7 @@ function showFeedback({ type = "success", title, message, onClose } = {}) {
     modal.setAttribute('aria-hidden', 'true');
     okBtn.removeEventListener('click', close);
     document.removeEventListener('keydown', esc);
+    modal.querySelector('.fb-backdrop').onclick = null;
     if (typeof onClose === 'function') onClose();
   };
   const esc = (e) => { if (e.key === 'Escape') close(); };

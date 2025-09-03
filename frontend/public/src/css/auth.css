@@ -1,11 +1,10 @@
-/* Fundo com faixa teal à esquerda e área clara à direita */
+/* ====== CADASTRO LAYOUT ====== */
 .cadastro-bg{
   background:
     linear-gradient(90deg, var(--bg-sidebar) 0 360px, #f7fbfb 360px 100%);
   padding-left: 56px;
 }
 
-/* Logo sobre a faixa */
 .logo{
   display:flex; align-items:center; gap:10px;
   color:#ffffff;
@@ -15,7 +14,6 @@
 }
 .logo img{ width:120px; height:150px; object-fit:contain; }
 
-/* Card do formulário */
 .bg-form{
   background: var(--white);
   border-radius: 14px;
@@ -23,10 +21,6 @@
 }
 .bg-form h2{ margin:0 0 10px; font-size:28px; color:var(--ink-900); letter-spacing:.2px; }
 
-/* Reaproveita inputs e botões do base.css:
-   .form-control, .btn-pill, .btn-primary-custom */
-
-/* Responsivo */
 @media (max-width: 760px){
   .cadastro-bg{
     background:#ffffff;
@@ -42,7 +36,6 @@
   grid-template-columns: 120px 450px 1fr; /* rail | faixa teal | imagem */
 }
 
-/* rail lateral de ícones */
 .login-rail{
   background: #0e8e90; /* um tom mais escuro do teal */
   color: #fff;
@@ -61,7 +54,6 @@
 }
 .login-rail .rail-spacer{ flex: 1; }
 
-/* faixa teal com logo e mensagem */
 .login-left{
   background: var(--bg-sidebar);
   color: #fff;
@@ -71,7 +63,7 @@
   gap: 18px;
 }
 .login-left .logo{
-  color: #fff; /* garante logo branca */
+  color: #fff; 
 }
 .login-welcome{
   align-self: center;
@@ -86,26 +78,24 @@
   font-family: "Montserrat", system-ui, sans-serif;
   font-weight: 700;
   line-height: 1.15;
-  font-size: clamp(32px, 5.4vw, 56px); /* grande e responsivo */
+  font-size: clamp(32px, 5.4vw, 56px);
   letter-spacing: .4px;
 }
 
-/* área direita com imagem + gradiente e topo */
 .login-right{
   position: relative;
   background:
     linear-gradient(135deg, #1e3c72 0%, #2a5298 100%),
     url("frontend/public/assets/azul_gradiente.png") center/cover no-repeat;
 }
-/* gradiente teal sobre a imagem da direita */
+
 .login-right::after{
   content: "";
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(180deg, rgba(39,184,189,.32) 0%, rgba(39,184,189,.12) 100%);
-  pointer-events: none; /* permite clicar através do gradiente */
+  pointer-events: none; 
 }
 
-/* topbar com chip de usuário */
 .login-topbar{
   position: absolute; top: 12px; right: 14px;
   display: flex; align-items: center; gap: 10px;
@@ -120,13 +110,13 @@
   font-weight: 600;
   font-size: 14px;
 }
+
 .user-chip .dot{
   width: 22px; height: 22px; border-radius: 50%;
   background: #0e8e90;
   display: inline-block;
 }
 
-/* opcional: card de login (se você quiser o form por cima da imagem) */
 .login-card{
   position: absolute;
   right: 28px; bottom: 28px;
@@ -136,8 +126,6 @@
   box-shadow: 0 10px 24px rgba(0,0,0,.08);
   padding: 22px 22px 20px;
 }
-
-/* inputs e botão reaproveitam do base.css (.form-control, .btn-pill, .btn-primary-custom) */
 
 /* ====== Responsivo ====== */
 @media (max-width: 1024px){
@@ -151,7 +139,7 @@
     padding: 20px 16px 12px;
   }
   .login-right{
-    min-height: 48vh; /* dá espaço pra imagem no mobile */
+    min-height: 48vh; 
   }
   .login-card{
     position: static;

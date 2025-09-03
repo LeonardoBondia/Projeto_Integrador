@@ -48,7 +48,6 @@
   margin: 12px 0 6px; font-weight:600;
 }
 
-/* grade geral */
 .form-grid{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -59,14 +58,12 @@
 .col-3-2{ grid-column: span 2; }
 .col-3-3{ grid-column: span 3; }
 
-/* subtítulo de seção */
 .subsection{
   margin: 6px 0 -2px;
   font-weight:800;
   color: var(--ink-900);
 }
 
-/* grades específicas de endereço */
 .grid-address{
   display:grid;
   grid-template-columns: 180px 1fr 80px;
@@ -78,7 +75,6 @@
   gap:14px 16px;
 }
 
-/* ações */
 .actions{ display:flex; justify-content:flex-end; margin-top:22px; }
 
 /* ====== Responsivo ====== */
@@ -93,37 +89,34 @@
   .actions{ justify-content: stretch; }
   .btn-pill{ width:100%; }
 }
-/* --- Modal base: oculto por padrão --- */
+
 .fb-modal{
-  position: fixed;         /* prende na viewport */
-  inset: 0;                /* top/right/bottom/left: 0 */
-  display: grid;           /* fácil de centralizar */
+  position: fixed;         
+  inset: 0;                
+  display: grid;           
   place-items: center;
-  z-index: 2000;           /* acima de sidebar/nav etc. */
+  z-index: 2000;           
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity .2s ease;
 }
 
-/* Quando abrir (JS adiciona .show) */
 .fb-modal.show{
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
 
-/* Fundo escuro */
 .fb-backdrop{
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,.5);
 }
 
-/* Cartão do modal */
 .fb-card{
   position: relative;
-  z-index: 1;              /* acima do backdrop */
+  z-index: 1;             
   background: #fff;
   width: min(92vw, 420px);
   padding: 22px 20px;
@@ -135,7 +128,7 @@
 }
 
 .fb-card.error{ border: 2px solid #e55353; }
-.fb-ico{ font-size: 28px; line-height: 1; }
+.fb-icon{ font-size: 28px; line-height: 1; }
 .fb-title{ margin: 0; font-size: 1.1rem; }
 .fb-msg{ margin: 0; color: #556; }
 .fb-actions .fb-btn{

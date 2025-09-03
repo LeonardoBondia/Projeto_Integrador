@@ -62,10 +62,9 @@ body{
 .btn-pill:hover{ filter: brightness(1.04); }
 .btn-pill:active{ transform: translateY(1px); }
 
-/* ====== Utilidades de espaçamento (mínimo) ====== */
+/* ====== Utilidades de espaçamento ====== */
 .container-narrow { max-width: 860px; }
 
-/* Layout de duas colunas sem sobreposição */
 .login-shell{
   display: grid;
   grid-template-columns: minmax(320px, 520px) 1fr;
@@ -73,27 +72,22 @@ body{
   position: relative;
 }
 
-/* garante que a esquerda fique clicável acima de qualquer overlay */
 .login-left{ position: relative; z-index: 2; }
 
-/* a direita NÃO deve ser absoluta/fixa nem ocupar a tela toda */
 .login-right{
-  position: relative;           /* em vez de absolute/fixed */
+  position: relative;           
   background-size: cover;
   background-position: center;
-  z-index: 1;                   /* abaixo da esquerda */
+  z-index: 1;                   
 }
 
-/* se você usa um gradiente por pseudo-elemento, ele não pode pegar cliques */
 .login-right::before,
 .login-right::after{
-  pointer-events: none;         /* overlay não intercepta o mouse */
+  pointer-events: none;         
 }
 
-/* a barra lateral precisa ficar acima do fundo */
 .login-rail{ position: relative; z-index: 4; }
 
-/* se existir overlay/gradiente na direita, ele não deve capturar clique */
 .login-right::before,
 .login-right::after{
   pointer-events: none;

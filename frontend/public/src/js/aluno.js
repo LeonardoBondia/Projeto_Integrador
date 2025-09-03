@@ -1,34 +1,9 @@
 import { API_BASE } from "./config.js";
+import { showFeedback } from "./feedback.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("formAluno");
-  const modal = document.getElementById("feedbackModal");
-  const fbTitle = document.getElementById("fbTitle");
-  const fbMessage = document.getElementById("fbMessage");
-  const fbIcon = document.getElementById("fbIcon");
-  const fbOk = document.getElementById("fbOk");
- 
   if (!form) return;
-
-
-   function abrirModal(titulo, mensagem, sucesso = true) {
-    fbTitle.textContent = titulo;
-    fbMessage.textContent = mensagem;
-    fbIcon.textContent = sucesso ? "✓" : "⚠️";
-
-    modal.setAttribute("aria-hidden", "false");
-    modal.style.display = "flex";
-   }
-
-   fbOk.addEventListener("click", () => {
-    modal.setAttribute("aria-hidden", "true");
-    modal.style.display = "none";
-  });
-  modal.querySelector(".fb-backdrop").addEventListener("click", () => {
-    modal.setAttribute("aria-hidden", "true");
-    modal.style.display = "none";
-  }); 
-
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -46,14 +21,26 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await resp.json().catch(() => ({}));
 
       if (!resp.ok || data.error) {
-         abrirModal("Erro", data.message || "Dados inválidos. Revise os campos.", false);
+        showFeedback({
+          type: "error",
+          title: "Erro",
+          message: data.message || "Dados inválidos. Revise os campos."
+        });
         return;
       }
 
-      abrirModal("Tudo certo!", "Cadastro realizado com sucesso!", true);
-      form.reset();
+      showFeedback({
+        type: "success",
+        title: "Tudo certo!",
+        message: "Cadastro realizado com sucesso!",
+        onClose: () => form.reset()
+      });
     } catch (err) {
-      alert("Falha de conexão. Tente novamente.");
+      showFeedback({
+        type: "error",
+        title: "Erro",
+        message: "Falha de conexão. Tente novamente."
+      });
     }
   });
 });
