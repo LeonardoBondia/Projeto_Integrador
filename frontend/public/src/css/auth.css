@@ -95,7 +95,7 @@
   position: relative;
   background:
     linear-gradient(135deg, #1e3c72 0%, #2a5298 100%),
-    url("../../assets/azul_gradiente.png") center/cover no-repeat;
+    url("frontend/public/assets/azul_gradiente.png") center/cover no-repeat;
 }
 /* gradiente teal sobre a imagem da direita */
 .login-right::after{

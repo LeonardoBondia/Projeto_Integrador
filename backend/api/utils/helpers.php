@@ -1,6 +1,6 @@
 <?php
 
-function dd(mixed ...$items)
+function dd(mixed ...$items): void
 {
     echo '<pre>';
     foreach ($items as $item) {
@@ -10,19 +10,24 @@ function dd(mixed ...$items)
     exit;
 }
 
-function sendResponse($message, $data, $error)
+function sendResponse(string $message, mixed $data, bool $error, int $statusCode = 200): void
 {
-    echo json_encode(['message' => $message, 'data' => $data, 'error' => $error]);
+    http_response_code($statusCode);
+    header('Content-Type: application/json; charset=utf-8');
+    header('X-Content-Type-Options: nosniff');
+    echo json_encode(['message' => $message, 'data' => $data, 'error' => $error], JSON_UNESCAPED_UNICODE);
+    exit;
 }
 
 function getBody(): array
 {
-    $body = file_get_contents('php://input');
-
-    $data = json_decode($body, true);
-    return $data;
+    $raw = file_get_contents('php://input');
+    if (!$raw) return [];
+    $data = json_decode($raw, true);
+    return is_array($data) ? $data : [];
 }
 
-function isAuth(){
+function isAuth(): bool
+{
     return isset($_COOKIE['auth']);
 }

@@ -1,7 +1,7 @@
 <?php
 
-require_once('../db/connection.php');
-require('../utils/helpers.php');
+require_once 'backend/api/db/connection.php';
+require 'backend/api/utils/helpers.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

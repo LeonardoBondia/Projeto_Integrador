@@ -1,5 +1,5 @@
 // Exibe modal de sucesso/erro. type: "success" | "error"
-export function showFeedback({ type = "success", title, message, onClose } = {}) {
+function showFeedback({ type = "success", title, message, onClose } = {}) {
   const modal   = document.getElementById('feedbackModal');
   const card    = modal.querySelector('.fb-card');
   const ico     = document.getElementById('fbIcon');
